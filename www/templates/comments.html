@@ -1,0 +1,40 @@
+<ion-view view-title="{{counter}} seconds">
+  <ion-content class="padding">
+      <div class="card">
+        <div class="item item-text-wrap">
+          All you need - is to click the "Start" button. If your click will last for 1 minute - send us a screenshot and 1.000.000$ is yours.
+          <br>
+          <br>
+          Challenge will start as soon as there will be 10.000 downloads, so invite your friends :)
+
+      <button class="button button-outline button-block button-balanced icon-left ion-ios-stopwatch-outline" ng-click="addClick(); startGame = true" id="button">
+        <div ng-if="!startGame">
+          Start
+        </div>
+        <div ng-if="startGame">
+          Restart
+        </div>
+      </button>
+
+        </div>
+      </div>
+
+      <div class="card" ng-if="counter==0">
+        <div class="item item-text-wrap">
+          {{newTime}}
+          <br>
+          Take a screenshot and send it to pavlovdog2014@gmail.com
+        </div>
+      </div>
+
+
+
+      <div class="list card" ng-if="dataBind">
+        <div class="item item-avatar" ng-repeat="(time, data) in dataBind">
+          <img src="{{:: data.authPic}}">
+          <h2>{{:: data.username}}</h2>
+          <p>{{:: data.time | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+        </div>
+      </div>
+  </ion-content>
+</ion-view>
